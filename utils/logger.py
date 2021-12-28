@@ -5,7 +5,7 @@ import datetime
 import time
 import os.path as osp
 
-from utils.dist_utils import get_dist_info, master_only
+from .dist_utils import get_dist_info, master_only
 
 
 def get_root_logger(logger_name='sr',

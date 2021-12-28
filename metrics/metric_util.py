@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from utils.matlab_functions import bgr2ycbcr
+from .matlab_functions import bgr2ycbcr
 
 
 def reorder_image(img, input_order='HWC'):

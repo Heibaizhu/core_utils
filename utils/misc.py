@@ -8,8 +8,8 @@ import os.path as osp
 
 import torch
 
-from utils.dist_utils import master_only
-from utils.logger import get_root_logger
+from .dist_utils import master_only
+from .logger import get_root_logger
 
 
 def set_random_seed(seed):

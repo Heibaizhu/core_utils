@@ -7,8 +7,8 @@ import random
 from copy import deepcopy
 from os import path as osp
 from collections import OrderedDict
-from .utils.dist_utils import init_dist, get_dist_info
-from .utils.misc import set_random_seed
+from .dist_utils import init_dist, get_dist_info
+from .misc import set_random_seed
 
 
 def str2bool(v):
