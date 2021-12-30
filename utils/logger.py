@@ -90,7 +90,7 @@ class Logger:
         # epoch, iter, learning rates
         epoch = log_vars.pop('epoch')
         current_iter = log_vars.pop('iter')
-        lrs = log_vars.pop('lrs')
+        lrs = log_vars['lrs']
 
         message = (f'[{self.exp_name[:5]}..][epoch:{epoch:3d}, '
                    f'iter:{current_iter:8,d}, lr:(')
@@ -115,7 +115,10 @@ class Logger:
             message += f'{k}: {v:.4e} '
             # tensorboard logger
             if self.use_tb_logger and 'debug' not in self.exp_name:
-                if k.startswith('l_'):
+                if k == 'lrs':
+                    for i, lr in enumerate(v):
+                        self.tb_logger.add_scalar(f"lr{i}", lr, current_iter)
+                elif k.startswith('l_'):
                     self.tb_logger.add_scalar(f'losses/{k}', v, current_iter)
                 else:
                     self.tb_logger.add_scalar(k, v, current_iter)
