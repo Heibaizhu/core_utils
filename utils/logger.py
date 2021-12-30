@@ -112,7 +112,8 @@ class Logger:
 
         # other items, especially losses
         for k, v in log_vars.items():
-            message += f'{k}: {v:.4e} '
+            if k != 'lrs':
+                message += f'{k}: {v:.4e} '
             # tensorboard logger
             if self.use_tb_logger and 'debug' not in self.exp_name:
                 if k == 'lrs':
